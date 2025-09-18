@@ -1,0 +1,20 @@
+
+Pour ce problème nous devons déterminer chaque coefficients et ensuite appliquer la formule mathématique delta et ensuite la réponse si delta positif ou nul applique la deuxième formule.
+
+Etapes :
+- Organiser l'équation de manière à avoir ax²+bx+c=0
+- Déterminer les coefficients du terme du deuxième degré (le a), du premier degré (le b) et l'indépendant (le c). Ces données sont demander une par une a l'user (d'abord le x² puis le x et le terme indé)
+- Appliquer la formule de delta : b²-4ac
+- Vérifie si c'est valeur est positive, nul ou négative
+- Si positive :
+	- Appliquer la formule (-b + sqr(delta))/2a pour la première racine
+	- Appliquer la formule (-b - sqr(delta))/2a pour la deuxième racine
+- Si nul :
+	- Appliquer la formule -b/2a pour la racine
+- si négative :
+	- Pas de racine.
+
+
+	
+	
+
