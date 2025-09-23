@@ -14,7 +14,7 @@ s_2 += min * 60
 result_fast = s_2 * km_2
 
 # heure
-heure = 6
+heure = 23
 minute = 52
 seconde = 0
 
@@ -37,5 +37,7 @@ minute = minute % 60
 
 minute += seconde // 60
 seconde = seconde % 60
+
+heure = heure % 24
 
 print(heure, minute, seconde)
