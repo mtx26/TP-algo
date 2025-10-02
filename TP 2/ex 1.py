@@ -137,23 +137,33 @@ def ask():
         print(RED + "Only number !!!!!!!" + RESET)
         return None
 
-nb = random(1, 100)
+def step(nb , i):
+    """
+        Exécute le test correspondant à l'étape i sur le nombre nb.
 
-while(i < 6):
+        Arguments:
+            nb : nombre à tester (int)
+            i : numéro de l'étape (int)
 
+        Return:
+            Aucun retour, affiche le résultat du test correspondant.
+    """
     if (i == 1):
         is_odd(nb)
-
     if (i == 2):
         is_three(nb)
     if (i == 3):
         is_50(nb)
-    
     if (i == 4):
         is_power(nb)
-
     if (i == 5):
         is_squared(nb)
+
+nb = random(1, 100)
+
+while(i < 6):
+
+    step(nb, i)
     
     user_nb = ask()
 
