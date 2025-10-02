@@ -24,7 +24,6 @@ def random(n, p):
     """
     nb = rd.randrange(n, p, 1)
     return nb
-help(random)
 
 def power(n, p):
     """
@@ -118,6 +117,25 @@ def is_squared(nb):
         print(CYAN + "Le nombre est un carré parfait" + RESET)
     else:
         print(YELLOW + "Le nombre n'est pas un carré parfait" + RESET)
+    
+def ask():
+    """
+        Demande à l'utilisateur d'entrer le nombre généré aléatoirement.
+
+        Arguments:
+            Aucun argument.
+
+        Return:
+            Retourne le nombre entré par l'utilisateur (int) si valide, sinon None.
+    """
+    user_nb = input(BLUE + "Entrez le nombre qui a été généré aléatoirement :\n" + RESET)
+    
+    if user_nb.isdigit():
+        user_nb = int(user_nb)
+        return user_nb
+    else:
+        print(RED + "Only number !!!!!!!" + RESET)
+        return None
 
 nb = random(1, 100)
 
@@ -136,12 +154,10 @@ while(i < 6):
 
     if (i == 5):
         is_squared(nb)
-
-    user_nb = input(BLUE + "Entrez le nombre qui a été généré aléatoirement :\n" + RESET)
     
-    if user_nb.isdigit():
-        user_nb = int(user_nb)
+    user_nb = ask()
 
+    if user_nb:
         if (nb == user_nb):
             print(GREEN + "GG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + RESET)
             break
@@ -151,6 +167,4 @@ while(i < 6):
             else:
                 print(RED + "Pas de chance, essayez encore." + RESET)
             i += 1
-    else:
-        print(RED + "Only number !!!!!!!" + RESET)
 
