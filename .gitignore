@@ -1,0 +1,37 @@
+# Fichier .gitignore pour un projet Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+*.egg-info/
+*.egg
+*.env
+.env
+.venv
+venv/
+ENV/
+build/
+dist/
+.eggs/
+*.log
+*.sqlite3
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.bak
+*.tmp
+*.coverage
+.coverage.*
+.cache/
+.tox/
+.mypy_cache/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Systèmes d'exploitation
+Thumbs.db
