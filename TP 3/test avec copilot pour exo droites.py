@@ -1,14 +1,17 @@
+import numpy as np
+import math
+
 def droite(p1, p2):
     """
     Calcule le triplet (a, b, c) de la droite passant par les points p1 et p2.
     p1, p2 : tuples (x, y)
     Retourne : (a, b, c) tel que a*x + b*y = c
     """
-    x1, y1 = p1
-    x2, y2 = p2
-    a = y2 - y1
-    b = x1 - x2
-    c = a * x1 + b * y1
+    p1 = np.array(p1)
+    p2 = np.array(p2)
+    a = p2[1] - p1[1]
+    b = p1[0] - p2[0]
+    c = a * p1[0] + b * p1[1]
     return (a, b, c)
 
 def paralleles(d1, d2):
@@ -19,8 +22,7 @@ def paralleles(d1, d2):
     """
     a1, b1, _ = d1
     a2, b2, _ = d2
-    # Deux droites sont parallèles si leurs coefficients a et b sont proportionnels
-    return a1 * b2 == a2 * b1
+    return np.isclose(a1 * b2, a2 * b1)
 
 def intersection(d1, d2):
     """
@@ -30,12 +32,12 @@ def intersection(d1, d2):
     """
     a1, b1, c1 = d1
     a2, b2, c2 = d2
-    det = a1 * b2 - a2 * b1
-    if det == 0:
+    A = np.array([[a1, b1], [a2, b2]])
+    C = np.array([c1, c2])
+    if np.isclose(np.linalg.det(A), 0):
         return None
-    x = (c1 * b2 - c2 * b1) / det
-    y = (a1 * c2 - a2 * c1) / det
-    return (x, y)
+    sol = np.linalg.solve(A, C)
+    return tuple(sol)
 
 def droite_normale(d, p):
     """
@@ -46,7 +48,6 @@ def droite_normale(d, p):
     """
     a, b, _ = d
     x, y = p
-    # La normale a pour coefficients (-b, a)
     a_n = -b
     b_n = a
     c_n = a_n * x + b_n * y
@@ -59,18 +60,14 @@ def symetrie_orthogonale(d, p):
     p : tuple (x, y)
     Retourne : tuple (x', y')
     """
-    # Droite normale à d passant par p
     d_n = droite_normale(d, p)
-    # Intersection entre d et sa normale (pied de la perpendiculaire)
     pied = intersection(d, d_n)
     if pied is None:
         return None
-    x, y = p
-    x_pied, y_pied = pied
-    # Symétrie orthogonale : image = pied + vecteur (pied -> p)
-    x_sym = 2 * x_pied - x
-    y_sym = 2 * y_pied - y
-    return (x_sym, y_sym)
+    p = np.array(p)
+    pied = np.array(pied)
+    sym = 2 * pied - p
+    return tuple(sym)
 
 def distance_droite_point(d, p):
     """
@@ -81,5 +78,4 @@ def distance_droite_point(d, p):
     """
     a, b, c = d
     x, y = p
-    # Formule : |a*x + b*y - c| / sqrt(a^2 + b^2)
-    return abs(a * x + b * y - c) / (a**2 + b**2)**0.5
+    return np.abs(a * x + b * y - c) / np.hypot(a, b)
