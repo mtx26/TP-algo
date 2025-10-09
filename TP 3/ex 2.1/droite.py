@@ -1,6 +1,6 @@
 import math
 
-### On tarvaille avec la forme ax + by + c = 0
+### On tarvaille avec la forme ax + by = c
 ### le triplet (a, b, c)
 
 def triplet_droite(x1, y1, x2, y2):
@@ -83,7 +83,7 @@ def appartient(d, p1):
     Return:
         Retourne True si le point appartient à la droite, False sinon.
     """
-    if (d[0] * p1[0]) + (d[1] * p1[1]) + d[2] == 0 :
+    if (d[0] * p1[0]) + (d[1] * p1[1]) - d[2] == 0 :
         return True
     else:
         return False
