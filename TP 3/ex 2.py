@@ -17,7 +17,9 @@ def rendreMonnaie(prix, x1, x2, x3, x4, x5):
     cash = calculterCash(x1, x2, x3, x4, x5)
     print(cash)
     prix = cash - prix
-
+    if prix < 0:
+        print("Pas assez d'argent donné !!!")
+        return 0, 0, 0, 0, 0
     x1, rest = getnotes(20, prix)
     x2, rest = getnotes(10, rest)
     x3, rest = getnotes(5, rest)
@@ -25,5 +27,5 @@ def rendreMonnaie(prix, x1, x2, x3, x4, x5):
     x5, rest = getnotes(1, rest)
     return x1, x2, x3, x4, x5
 
-x1, x2, x3, x4, x5 = rendreMonnaie(42, 1, 2, 4, 1, 1)
-print(x1, x2, x3, x4, x5)
+x1, x2, x3, x4, x5 = rendreMonnaie(42, 0, 1, 4, 1, 1)
+print(x1, "billet de 20, ", x2, "billet de 10, ", x3, "billet de 5, ", x4, "piéces de 2, ", x5, "piéces de 1.")
