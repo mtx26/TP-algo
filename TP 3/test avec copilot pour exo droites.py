@@ -36,3 +36,18 @@ def intersection(d1, d2):
     x = (c1 * b2 - c2 * b1) / det
     y = (a1 * c2 - a2 * c1) / det
     return (x, y)
+
+def droite_normale(d, p):
+    """
+    Calcule le triplet (a, b, c) de la droite perpendiculaire à d passant par p.
+    d : triplet (a, b, c)
+    p : tuple (x, y)
+    Retourne : (a', b', c')
+    """
+    a, b, _ = d
+    x, y = p
+    # La normale a pour coefficients (-b, a)
+    a_n = -b
+    b_n = a
+    c_n = a_n * x + b_n * y
+    return (a_n, b_n, c_n)
