@@ -51,3 +51,35 @@ def droite_normale(d, p):
     b_n = a
     c_n = a_n * x + b_n * y
     return (a_n, b_n, c_n)
+
+def symetrie_orthogonale(d, p):
+    """
+    Calcule le point image de p par la symétrie orthogonale par rapport à la droite d.
+    d : triplet (a, b, c)
+    p : tuple (x, y)
+    Retourne : tuple (x', y')
+    """
+    # Droite normale à d passant par p
+    d_n = droite_normale(d, p)
+    # Intersection entre d et sa normale (pied de la perpendiculaire)
+    pied = intersection(d, d_n)
+    if pied is None:
+        return None
+    x, y = p
+    x_pied, y_pied = pied
+    # Symétrie orthogonale : image = pied + vecteur (pied -> p)
+    x_sym = 2 * x_pied - x
+    y_sym = 2 * y_pied - y
+    return (x_sym, y_sym)
+
+def distance_droite_point(d, p):
+    """
+    Calcule la distance entre la droite d et le point p.
+    d : triplet (a, b, c)
+    p : tuple (x, y)
+    Retourne : float
+    """
+    a, b, c = d
+    x, y = p
+    # Formule : |a*x + b*y - c| / sqrt(a^2 + b^2)
+    return abs(a * x + b * y - c) / (a**2 + b**2)**0.5
