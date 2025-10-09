@@ -1,0 +1,26 @@
+J'ai comme entrée les var :
+    - prix (la somme que le client droit)
+    - x1 (nombre de billet de 20€ qu'il me donne)
+    - x2 (10€)
+    - x3 (5€)
+    - x4 (2€)
+    - x5 (1€)
+calculé le prix de debart
+    je multiblie chaque nombre de billet par sa valeur
+    et puis je les additionne
+    puis je soustrait la somme par le prix et ca me donne le result
+
+retune
+    20€
+        je prend la variable result et je fais la division entiere et le noimbre qu'il me retourne est le nombre de billet de 20 et je l'enregistre dans 
+        Ensuite je fait le modulo du result par 20, je retien le reste dasn une var reste
+    10€
+        pareil avec le reste et par 10
+    5€
+        pareil avec le reste modifié et par 5
+    2€
+        pareil avec le reste modifié et par 2
+    1€
+        pareil avec le reste modifié et par 1
+
+    Ensuite je retune le ombre de chaque billet
