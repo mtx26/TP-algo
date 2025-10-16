@@ -19,7 +19,7 @@ def somme3(n):
         return 0
     else:
         return n+somme3(n-1)
-# c'est a bonne
+# c'est la bonne
 
 
 def somme4(n):
