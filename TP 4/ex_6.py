@@ -30,5 +30,5 @@ if __name__ == '__main__':
     t = turtle.Turtle()
     setSpeed(t, 0)
     turnNorth(t)
-    tree(t, 100, 120, 7)
+    tree(t, 100, 90, 7)
     wait()
