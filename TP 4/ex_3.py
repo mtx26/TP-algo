@@ -1,8 +1,5 @@
 from uturtle_prof import *
-screen = turtle.Screen
 
-t = turtle.Turtle()
-setSpeed(t, 0)
 def koch(t, x, seuil):
     if seuil == 0:
         moveForward(t, x/3)
@@ -20,6 +17,11 @@ def koch(t, x, seuil):
         koch(t, x/3, seuil-1)
         turnLeft(t, 60)
         koch(t, x/3, seuil-1)
-koch(t, 500, 5)
 
-wait()
+if __name__ == '__main__':
+    screen = turtle.Screen
+
+    t = turtle.Turtle()
+    setSpeed(t, 0)
+    koch(t, 500, 3)
+    wait()
