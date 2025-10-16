@@ -27,5 +27,5 @@ if __name__ == '__main__':
 
     t = turtle.Turtle()
     setSpeed(t, 0)
-    carre(t, 500, 5)
+    carre(t, 500, 3)
     wait()
