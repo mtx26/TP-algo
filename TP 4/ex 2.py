@@ -27,6 +27,5 @@ if __name__ == '__main__':
     Matis = umonsTurtle()
     setSpeed(Matis, 0)
     triangle(Matis, 4, 256)
-    Matis.color(blue)
     wait()
 wait(200)
