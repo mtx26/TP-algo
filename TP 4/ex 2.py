@@ -1,4 +1,17 @@
 from uturtle_prof import *
+
+screen = turtle.Screen()
+
+def setTitle(s):
+
+    screen.title(s)
+
+
+def umonsTurtle():
+    t = turtle.Turtle()
+    return t
+
+
 def triangle(t, n, size):
     if n == 0:
         moveForward(t, size)
@@ -19,3 +32,9 @@ def triangle(t, n, size):
         turnLeft(t, 60)
         moveBackward(t, size/2)
         turnRight(t, 60)
+
+if __name__ == '__main__':
+    setTitle("Ex 2")
+    Matis = umonsTurtle()
+    triangle(Matis, 4, 12)
+    wait()
