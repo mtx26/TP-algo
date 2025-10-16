@@ -1,16 +1,5 @@
 from uturtle_prof import *
 
-screen = turtle.Screen()
-
-def setTitle(s):
-
-    screen.title(s)
-
-
-def umonsTurtle():
-    t = turtle.Turtle()
-    return t
-
 
 def triangle(t, n, size):
     if n == 0:
@@ -36,5 +25,7 @@ def triangle(t, n, size):
 if __name__ == '__main__':
     setTitle("Ex 2")
     Matis = umonsTurtle()
-    triangle(Matis, 4, 12)
+    setSpeed(Matis, 0)
+    triangle(Matis, 4, 256)
     wait()
+wait(200)
