@@ -1,4 +1,4 @@
-from uturtle_prof import *
+from TP_4.suppl.uturtle_prof import *
 
 def carre(t, x, seuil):
     if seuil == 0:

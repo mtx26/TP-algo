@@ -1,5 +1,5 @@
 from ex_3 import *
-from uturtle_prof import *
+from suppl.uturtle_prof import *
 
 def flocon(t, x, seuil):
     koch(t, x, seuil)
