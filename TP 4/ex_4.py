@@ -15,5 +15,5 @@ if __name__ == '__main__':
     t = turtle.Turtle()
     setSpeed(t, 0)
 
-    flocon(t, 500, 2)
+    flocon(t, 500, 3)
     wait()
