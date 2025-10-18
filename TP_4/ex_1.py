@@ -18,7 +18,7 @@ def somme3(n):
     if n == 0:
         return 0
     else:
-        return n+somme3(n-1)
+        return n + somme3(n-1)
 # c'est a bonne
 
 

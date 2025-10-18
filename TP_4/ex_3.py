@@ -1,27 +1,41 @@
-from uturtle_prof import *
+import turtle
+
 
 def koch(t, x, seuil):
+    third = x / 3.0
+    if x < 1:
+        return
     if seuil == 0:
-        moveForward(t, x/3)
-        turnLeft(t, 60)
-        moveForward(t, x/3)
-        turnRight(t, 120)
-        moveForward(t, x/3)
-        turnLeft(t, 60)
-        moveForward(t, x/3)
+        t.forward(third)
+        t.left(60)
+        t.forward(third)
+        t.right(120)
+        t.forward(third)
+        t.left(60)
+        t.forward(third)
     else:
-        koch(t, x/3, seuil-1)
-        turnLeft(t, 60)
-        koch(t, x/3, seuil-1)
-        turnRight(t, 120)
-        koch(t, x/3, seuil-1)
-        turnLeft(t, 60)
-        koch(t, x/3, seuil-1)
+        koch(t, third, seuil - 1)
+        t.left(60)
+        koch(t, third, seuil - 1)
+        t.right(120)
+        koch(t, third, seuil - 1)
+        t.left(60)
+        koch(t, third, seuil - 1)
+
 
 if __name__ == '__main__':
-    screen = turtle.Screen
+    screen = turtle.Screen()
+    turtle.tracer(0, 0) 
 
     t = turtle.Turtle()
-    setSpeed(t, 0)
-    koch(t, 500, 3)
-    wait()
+    t.hideturtle()
+    t.speed(0)
+
+    t.penup()
+    t.goto(-500, 0)
+    t.pendown()
+
+    koch(t, 1000, 8)
+
+    turtle.update()
+    turtle.done()
