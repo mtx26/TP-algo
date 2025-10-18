@@ -1,5 +1,4 @@
 import turtle
-import math
 from ex_3 import koch
 
 
