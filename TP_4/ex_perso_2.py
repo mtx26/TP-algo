@@ -1,5 +1,5 @@
-import math
 import turtle
+
 def golden_number(t, x, seuil):
     phi = (1 + 5 ** 0.5) / 2
     print(phi)
