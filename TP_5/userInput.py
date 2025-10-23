@@ -38,7 +38,7 @@ def ask_letter(tried_letters):
 	"""
 	Demande à l'utilisateur de saisir une lettre (un seul caractère) qui n'a pas encore été essayée.
 	Paramètres:
-	- tried_letters (list of str): liste des lettres déjà tentées.
+	- tried_letters (list): liste des lettres déjà tentées.
 	Retour:
 	- str: la lettre saisie par l'utilisateur.
 	"""
@@ -63,7 +63,7 @@ def is_the_letter_in_the_word(word, tried_letters):
 	Vérifie si la lettre saisie par l'utilisateur fait partie du mot.
 	Paramètres:
 	- word (str): le mot à deviner.
-	- tried_letters (list of str): liste des lettres déjà tentées (sera utilisée par ask_letter).
+	- tried_letters (list): liste des lettres déjà tentées (sera utilisée par ask_letter).
 	Retour:
 	- (bool, str): tuple où le premier élément est True si la lettre est dans le mot, False sinon;
 	  le second élément est la lettre testée.
@@ -79,7 +79,7 @@ def display_word(word, tried_letters):
 	Construit et renvoie la représentation du mot en remplaçant les lettres non trouvées par des '*'.
 	Paramètres:
 	- word (str): le mot à afficher.
-	- tried_letters (list of str): lettres déjà trouvées ou tentées.
+	- tried_letters (list): lettres déjà trouvées ou tentées.
 	Retour:
 	- str: la chaîne affichée avec lettres découvertes et '*' pour les lettres non découvertes.
 	"""
@@ -96,7 +96,7 @@ def if_word_is_guessed(word, tried_letters):
 	Vérifie si toutes les lettres du mot ont été devinées.
 	Paramètres:
 	- word (str): le mot à vérifier.
-	- tried_letters (list of str): lettres déjà tentées.
+	- tried_letters (list): lettres déjà tentées.
 	Retour:
 	- bool: True si toutes les lettres du mot sont présentes dans tried_letters, sinon False.
 	"""
