@@ -1,0 +1,2 @@
+
+fichier = open('words.txt')

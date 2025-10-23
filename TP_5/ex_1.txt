@@ -1,0 +1,28 @@
+Variable 
+    tentative : 10
+    mot : 
+    lettres : []
+function main :
+    demande un input avec le mot a deviner dasn var mot
+    mot mit en lower
+    recherche dans le fichier word pour chaque ligne si le mot y est.
+    si il y est alors deuxieme etape.
+
+deuxieme etape:
+    on fait une boucle while si i < 11 et on l'increment a chauqe tour
+    affiche le tour actuelle et lettre deja jouer
+    afficihe le mot avec les lettre trouver et * :
+        pour cela on parcours le mot si la lettre est dans lettres on l'ajout a une var provisoir et sino on ajoute une *
+    input lettre
+    verif si la lettre n'est pas dans var lettres
+    si non : ajouter la lettre dans lettres
+        verif si la lettre est presente dans le mots
+            si oui : afficher bien jouer
+            si non: dommage
+    
+    quand i = 10 :
+        si mot trouver 
+            score = nbr. de lettres différentes dans le mot + nbr. d’essais restants − nbr. de lettres essayées
+
+        
+
