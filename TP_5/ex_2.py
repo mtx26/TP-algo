@@ -10,9 +10,10 @@ def main():
     word = ask_word_in_dictionary()
     clear()
     print("P2 :")
-    while 10 >= 0:
+    while i >= 0:
         print(i, "guess left !")
-        print("Already guessed letters : ", tried_letters)
+        hangman(i)
+        print("Already guessed letters :", tried_letters)
         print(display_word(word, tried_letters))
         success, l = is_the_letter_in_the_word(word, tried_letters)
         tried_letters.append(l)
@@ -22,9 +23,13 @@ def main():
             print("Try again !")
         
         if if_word_is_guessed(word, tried_letters):
-            print("GG ! You guessed the correct word : ", word)
+            print("GG ! You guessed the correct word :", word)
             break
     
         i = i - 1
+    if i < 0:
+        print("Nooo, You've lost the game !")
+        print("The hidden word was :", word)
+        print("Another one ?!")
 
 main()
