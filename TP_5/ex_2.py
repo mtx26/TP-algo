@@ -1,3 +1,4 @@
+#Hangman game made by 2 students from Umons !
 from userInput import *
 from hangmantui import *
 
