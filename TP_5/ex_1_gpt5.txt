@@ -1,4 +1,4 @@
- Étape 1 : Grandes étapes de l’algorithme
+Étape 1 : Grandes étapes de l’algorithme
 	1.	Initialisation du jeu
 	•	Charger la liste de mots depuis words.txt.
 	•	Le joueur 2 choisit un mot parmi cette liste.
@@ -26,32 +26,31 @@
 	•	Sinon :
 	•	Afficher un message de défaite et révéler le mot.
 
-
  Schéma récapitulatif (simplifié)
 
-DÉBUT
-│
-├── Charger words.txt
-├── Joueur 2 choisit mot_secret
-├── Vérifier mot dans liste
-├── tentatives = 10
-├── lettres_jouées = []
-├── mot_cache = "****"
-│
-├── TANT QUE mot_cache ≠ mot_secret ET tentatives > 0 :
-│     ├── Afficher état du jeu
-│     ├── lettre = entrer lettre
-│     ├── SI lettre ∈ lettres_jouées → redemander
-│     ├── Ajouter lettre à lettres_jouées
-│     ├── SI lettre ∈ mot_secret :
-│     │       Mettre à jour mot_cache
-│     │   SINON :
-│     │       tentatives -= 1
-│
-├── SI mot_cache == mot_secret :
-│     ├── Afficher victoire
-│     ├── Calculer score
-│ SINON :
-│     ├── Afficher défaite + mot_secret
-│
-└── FIN
+    DÉBUT
+    │
+    ├── Charger words.txt
+    ├── Joueur 2 choisit mot_secret
+    ├── Vérifier mot dans liste
+    ├── tentatives = 10
+    ├── lettres_jouées = []
+    ├── mot_cache = "****"
+    │
+    ├── TANT QUE mot_cache ≠ mot_secret ET tentatives > 0 :
+    │     ├── Afficher état du jeu
+    │     ├── lettre = entrer lettre
+    │     ├── SI lettre ∈ lettres_jouées → redemander
+    │     ├── Ajouter lettre à lettres_jouées
+    │     ├── SI lettre ∈ mot_secret :
+    │     │       Mettre à jour mot_cache
+    │     │   SINON :
+    │     │       tentatives -= 1
+    │
+    ├── SI mot_cache == mot_secret :
+    │     ├── Afficher victoire
+    │     ├── Calculer score
+    │ SINON :
+    │     ├── Afficher défaite + mot_secret
+    │
+    └── FIN
