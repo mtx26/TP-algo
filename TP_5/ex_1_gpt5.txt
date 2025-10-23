@@ -1,0 +1,56 @@
+Étape 1 : Grandes étapes de l’algorithme
+	1.	Initialisation du jeu
+	•	Charger la liste de mots depuis words.txt.
+	•	Le joueur 2 choisit un mot parmi cette liste.
+	•	Initialiser les variables principales :
+	•	nombre de tentatives restantes = 10
+	•	lettres déjà proposées = liste vide
+	•	mot à deviner masqué = “*” pour chaque lettre du mot
+	2.	Boucle de jeu principale
+	•	Tant que le mot n’est pas complètement trouvé et qu’il reste des essais :
+	1.	Afficher :
+	•	le nombre d’essais restants
+	•	les lettres déjà jouées
+	•	le mot avec les lettres trouvées et les “*” pour les lettres manquantes
+	2.	Demander au joueur 1 une lettre.
+	3.	Vérifier que la lettre n’a pas déjà été proposée.
+	4.	Ajouter la lettre à la liste des lettres jouées.
+	5.	Vérifier si la lettre est dans le mot :
+	•	 Si oui → révéler cette/ces lettre(s) dans le mot masqué.
+	•	 Si non → diminuer le nombre d’essais restants de 1.
+	3.	Fin de la partie
+	•	Si le mot a été trouvé :
+	•	Afficher un message de victoire.
+	•	Calculer le score :
+\text{score} = (\text{nb de lettres différentes du mot}) + (\text{nb d’essais restants}) - (\text{nb de lettres essayées})
+	•	Sinon :
+	•	Afficher un message de défaite et révéler le mot.
+
+ Schéma récapitulatif (simplifié)
+
+    DÉBUT
+    │
+    ├── Charger words.txt
+    ├── Joueur 2 choisit mot_secret
+    ├── Vérifier mot dans liste
+    ├── tentatives = 10
+    ├── lettres_jouées = []
+    ├── mot_cache = "****"
+    │
+    ├── TANT QUE mot_cache ≠ mot_secret ET tentatives > 0 :
+    │     ├── Afficher état du jeu
+    │     ├── lettre = entrer lettre
+    │     ├── SI lettre ∈ lettres_jouées → redemander
+    │     ├── Ajouter lettre à lettres_jouées
+    │     ├── SI lettre ∈ mot_secret :
+    │     │       Mettre à jour mot_cache
+    │     │   SINON :
+    │     │       tentatives -= 1
+    │
+    ├── SI mot_cache == mot_secret :
+    │     ├── Afficher victoire
+    │     ├── Calculer score
+    │ SINON :
+    │     ├── Afficher défaite + mot_secret
+    │
+    └── FIN
