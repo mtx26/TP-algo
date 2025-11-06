@@ -85,7 +85,6 @@ def insert(seq: List[int], n: int) -> None:
     i = 0
     while i < len(seq) and seq[i] < n:
         i += 1
-    # slice assignment autorisée par l'énoncé
     seq[i:i] = [n]
 
 
@@ -94,16 +93,13 @@ def produit_matriciel(A: List[List[float]], B: List[List[float]]) -> Optional[An
     Retourne None si les dimensions ne conviennent pas.
     Si le résultat est 1x1, retourne un scalaire.
     """
-    # vérification des dimensions
     if not A or not B:
         return None
     m = len(A)
     n = len(A[0])
-    # vérifier que toutes les lignes d'A ont la même longueur
     for row in A:
         if len(row) != n:
             return None
-    # nombre de lignes de B
     nb_rows_B = len(B)
     if nb_rows_B != n:
         return None
@@ -112,7 +108,6 @@ def produit_matriciel(A: List[List[float]], B: List[List[float]]) -> Optional[An
         if len(row) != p:
             return None
 
-    # calcul
     C: List[List[float]] = []
     for i in range(m):
         rowC = []
