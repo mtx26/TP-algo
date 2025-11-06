@@ -1,3 +1,10 @@
+"""
+Module myList
+Implémentation demandée des fonctions map, filter, reduce, prime_numbers, is_prime,
+insert et produit_matriciel selon l'énoncé. Respecte la contrainte: seules les méthodes
+append et pop sont utilisées sur les listes (l'opérateur [] et les slices sont autorisés).
+"""
+
 """code made by copilot to help us understanding certains things while doing this by ourselves"""
 
 import math
