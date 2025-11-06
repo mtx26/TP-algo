@@ -23,11 +23,7 @@ def produit_matriciel(A, B):
     i = 0
     row = []
     while i < m:
-        row2 = []
-        j = 0
-        while j < p:
-            row2.append(0)
-            j += 1
+        row2 = [0]*p
         row.append(row2)
         i += 1
     print(row)
@@ -41,9 +37,7 @@ def produit_matriciel(A, B):
             rep = 0
             while k < n:
                 rep += A[i][k] * B[k][j]
-                print(A[i][k], B[k][j])
                 k += 1
-            print(rep)
             row[i][j] = rep
             j += 1
         i += 1
