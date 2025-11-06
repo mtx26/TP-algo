@@ -18,11 +18,10 @@ def prime_number(n):
         if isprime:
             rep += [num]
             i += 1
-            print(num)
         num += 1
-    print(rep)
+    return rep
 
-prime_number(9)
+print(prime_number(9))
 
 
 
