@@ -1,3 +1,4 @@
+#Code by GPT-5 and Noanb for correction of our version without graphic interface !
 import random
 import tkinter as tk
 from tkinter import messagebox
