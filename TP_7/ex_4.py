@@ -1,6 +1,5 @@
 import random
 
-
 def creerEnchevetrements(bag, i, max):
     res = []
     nb_ench = random.randrange(0, max)
@@ -25,6 +24,7 @@ def creerEnchevetrements(bag, i, max):
     return res
 
 # print(creerEnchevetrements([0, 1, 2, 3, 4, 5], 2, 10))
+
 def inverser(list):
     copy_list = list[:]
     copy_list[0], copy_list[1] = copy_list[1], copy_list[0]
@@ -69,11 +69,6 @@ def which(bag, game):
                 if rep != None:
                     return res + rep
         return None
-
-
-
-
-
 
 def main(bag):
     game = creerMikado(bag)
