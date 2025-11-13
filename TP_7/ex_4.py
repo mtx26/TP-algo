@@ -103,17 +103,18 @@ def which(bag, game):
     - list: ordre de retrait (liste d'identifiants) si une solution existe.
     - None: si aucun ordre complet n'est possible.
     """
-    res = []
     if len(bag) == 1:
         return bag
     else:
         for x in bag:
             if peutRetirer(x, bag, game):
-                res.append(x)
-                bag.remove(x)
-                rep = which(bag, game)
-                if rep != None:
-                    return res + rep
+                new_bag = []
+                for y in bag:
+                    if y != x:
+                        new_bag.append(y)
+                rep = which(new_bag, game)
+                if rep is not None:
+                    return [x] + rep
         return None
 
 def main(bag):
