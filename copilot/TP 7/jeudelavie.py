@@ -1,4 +1,3 @@
-import time
 import os
 
 def next_state(grid, i, j):
@@ -17,18 +16,16 @@ def next_state(grid, i, j):
             if grid[x][y]:
                 voisins_vivants += 1
 
-    # Règles du jeu
+    # Règles du jeu de la vie
     if grid[i][j]:
-        # Cellule vivante
         return voisins_vivants == 2 or voisins_vivants == 3
     else:
-        # Cellule morte
         return voisins_vivants == 3
 
 
 def next_grid(grid):
     """
-    Retourne une nouvelle grille après une étape du jeu.
+    Calcule la nouvelle grille selon les règles.
     """
     n = len(grid)
     m = len(grid[0])
@@ -45,7 +42,7 @@ def display_grid(grid):
     """
     Affiche la grille proprement à l'écran.
     """
-    os.system('cls' if os.name == 'nt' else 'clear')  # Nettoie l'écran
+    os.system('cls' if os.name == 'nt' else 'clear')  # Efface l'écran
     for row in grid:
         for cell in row:
             print("█" if cell else " ", end="")
@@ -53,20 +50,20 @@ def display_grid(grid):
     print()
 
 
-def simulate_life(grid, t, delay=0.5):
+def simulate_life(grid, t):
     """
-    Simule le jeu pendant t étapes, en affichant chaque état.
+    Simule le jeu pendant t étapes, avec une pause entre chaque étape via input().
     """
     current_grid = grid
     for step in range(t):
         display_grid(current_grid)
         print(f"Étape {step + 1}/{t}")
-        time.sleep(delay)
+        input("Appuyez sur [Entrée] pour continuer...")
         current_grid = next_grid(current_grid)
     return current_grid
 
 
-# Exemple de test : une petite grille avec un oscillateur (motif du clignotant)
+# Exemple de grille initiale (oscillateur)
 initial_grid = [
     [False, False, False, False, False],
     [False, False, True,  False, False],
@@ -75,5 +72,5 @@ initial_grid = [
     [False, False, False, False, False],
 ]
 
-# Lance la simulation
-simulate_life(initial_grid, t=10, delay=0.5)
+# Lancement de la simulation
+simulate_life(initial_grid, t=10)
