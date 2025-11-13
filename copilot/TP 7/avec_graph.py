@@ -43,7 +43,7 @@ class MikadoGUI:
     def __init__(self, root):
         """Initialize the Mikado game GUI."""
         self.root = root
-        self.root.title("🎋 Jeu du Mikado - Visualisation Moderne")
+        self.root.title("🎋 Jeu du Mikado - BAB1 Sc. Info.")
         self.root.geometry("960x700")
         self.root.configure(bg="#1E1E2E")  # fond sombre moderne
 
@@ -63,8 +63,11 @@ class MikadoGUI:
         self.btn_gen_static = tk.Button(btn_frame, text="📘 Charger exemple statique (test)", command=self.charger_exemple_stat, **style)
         self.btn_gen_static.grid(row=1, column=0, padx=10, pady=5)
 
-        self.btn_ordre = tk.Button(btn_frame, text="🧩 Afficher l'ordre de retrait", command=self.afficher_ordre, **style)
+        self.btn_ordre = tk.Button(btn_frame, text="🧩 Afficher l'ordre de retrait (solution)", command=self.afficher_ordre, **style)
         self.btn_ordre.grid(row=2, column=0, padx=10, pady=5)
+
+        self.btn_ordre = tk.Button(btn_frame, text="Matis est trop beau il a pas besion de GPT-5 pour le faire ", command=messagebox.showwarning("Attention", "oui matis est plus chaud que moi en code ! "), **style)
+        self.btn_ordre.grid(row=3, column=0, padx=10, pady=5)
 
         self.info_label = tk.Label(self.root, text="", bg="#1E1E2E", fg="#D0D0FF", font=("Consolas", 12, "bold"))
         self.info_label.pack(pady=10)
