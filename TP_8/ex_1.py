@@ -1,4 +1,5 @@
 import umage
+import math
 
 def greyscale(matrice_img):
     i = 0
@@ -25,6 +26,7 @@ def somme_conv(i, j, matrice_img, mat):
     dx = (x - 1)/2
 
     k = 0
+    res = [matrice_img[i][j][0], matrice_img[i][j][1], matrice_img[i][j][2]]
     res = [0, 0, 0]
     while k < (y):
         new_i = int(i - dy + k)
@@ -34,9 +36,9 @@ def somme_conv(i, j, matrice_img, mat):
             if (new_i > -1) and (new_i < y_img):
                 if (new_j > -1) and (new_j < x_img):
                     # print("ligne d&ns matrice", [new_i, new_j], [y_img, x_img],[k, l])
-                    res[0] += matrice_img[new_i][new_j][0] * mat[k][l][0]
-                    res[1] += matrice_img[new_i][new_j][1] * mat[k][l][1]
-                    res[2] += matrice_img[new_i][new_j][2] * mat[k][l][2]
+                    res[0] += matrice_img[new_i][new_j][0] * mat[k][l]
+                    res[1] += matrice_img[new_i][new_j][1] * mat[k][l]
+                    res[2] += matrice_img[new_i][new_j][2] * mat[k][l]
             l += 1
         k += 1
     return res
@@ -59,7 +61,34 @@ def convolution(matrice_img, mat):
             row[i][j] = (rep[0], rep[1], rep[2])
             j += 1
         i += 1
-    print(row)
     return row
 
-umage.save(convolution(greyscale(umage.load("TP_8/image_test.jpg")), [[[-1,-1,-1],[-1,8,-1],[-1,-1,-1]], [[-1,-1,-1],[-1,9,-1],[-1,-1,-1]], [[-2,0,0],[0,1,0],[0,0,2]]]), "new", "jpg")
+# umage.save(convolution(greyscale(umage.load("TP_8/image/image_test.jpg")), ([[-2,0,0],[0,1,0],[0,0,2]])), "new", "jpg")
+
+
+def Sobel(matrice_img):
+    mat_sobel_x = ([-1,0,1],[-2,0,2],[-1,0,1])
+    mat_sobel_y = ([-1,-2,-1],[0,0,0],[1,2,1])
+    sobel_x = convolution(matrice_img, mat_sobel_x)
+    sobel_y = convolution(matrice_img, mat_sobel_y)
+
+    row = []
+    a = 0
+    while a < len(matrice_img):
+        row2 = [0] * len(matrice_img[0])
+        row.append(row2)
+        a += 1
+
+    i = 0
+    while i < len(matrice_img):
+        j = 0
+        while j < len(matrice_img[0]):
+            r = int(math.sqrt(sobel_x[i][j][0]**2 + sobel_y[i][j][0]**2))
+            g = int(math.sqrt(sobel_x[i][j][1]**2 + sobel_y[i][j][1]**2))
+            b = int(math.sqrt(sobel_x[i][j][2]**2 + sobel_y[i][j][2]**2))
+            row[i][j] = (r, g, b)
+            j += 1
+        i += 1
+    return row
+
+umage.save(Sobel(greyscale(umage.load("TP_8/image/DJI_0189 copie.jpg"))), "img_sobel", "jpg")
