@@ -1,7 +1,9 @@
 from PIL import Image
 import itertools
 import math
-
+import os
+import umage
+#load et save sont des équivalent au module umage 
 def load(filename):
     """ Given a filename that matches an image file,
     return a list of lists of tuples corresponding to the list of
@@ -145,35 +147,42 @@ def sobel(mat_img):
 
 
 if __name__ == "__main__":
-    nom_fichier_entree = 'test.jpg'
+
+    dossier_script = os.path.dirname(os.path.abspath(__file__))
     
-    print(f"--- Tentative de chargement de {nom_fichier_entree} ---")
+    
+    chemin_image = os.path.join(dossier_script, 'test.jpg')
+    
+    print(f"Recherche de l'image ici : {chemin_image}")
+
     try:
-        image_originale = load(nom_fichier_entree)
-        print(f"Image chargée ! Taille : {len(image_originale[0])}x{len(image_originale)}")
-
-        print("Calcul du Greyscale...")
-        img_grise = greyscale(image_originale)
-        save(img_grise, 'resultat_gris')
-        print("-> Sauvegardé : resultat_gris.jpg")
-
-        print("Calcul d'un flou (Convolution)...")
-        box_blur = [[1/9, 1/9, 1/9],
-                    [1/9, 1/9, 1/9],
-                    [1/9, 1/9, 1/9]]
-        img_floue = convolution(image_originale, box_blur)
-        save(img_floue, 'resultat_flou')
-        print("-> Sauvegardé : resultat_flou.jpg")
-
-        print("Calcul de Sobel (Contours)...")
-        img_sobel = sobel(image_originale)
-        save(img_sobel, 'resultat_sobel')
-        print("-> Sauvegardé : resultat_sobel.jpg")
+        img = umage.load(chemin_image)
+        print(f"Succès ! Image chargée.")
         
-        print("--- Terminé avec succès ---")
+        # --- VOS TESTS ---
+        
+        # 1. Greyscale
+        print("Génération de l'image en niveaux de gris...")
+        img_g = greyscale(img)
+        # On sauvegarde aussi dans le même dossier pour retrouver le résultat
+        umage.save(img_g, os.path.join(dossier_script, 'resultat_gris'))
+        
+        # 2. Convolution
+        print("Génération du flou...")
+        flou = [[1/16, 2/16, 1/16], [2/16, 4/16, 2/16], [1/16, 2/16, 1/16]]
+        img_c = convolution(img, flou)
+        umage.save(img_c, os.path.join(dossier_script, 'resultat_flou'))
+
+        # 3. Sobel
+        print("Génération des contours (Sobel)...")
+        img_s = sobel(img)
+        umage.save(img_s, os.path.join(dossier_script, 'resultat_sobel'))
+        
+        print("Terminé ! Regardez dans le dossier du script.")
 
     except FileNotFoundError:
-        print(f"ERREUR CRITIQUE : Le fichier '{nom_fichier_entree}' est introuvable.")
-        print("Veuillez placer une image JPG nommée 'test.jpg' dans ce dossier.")
+        print(f"ERREUR : Python ne trouve toujours pas l'image.")
+        print(f"Vérifiez qu'un fichier s'appelle exactement 'test.jpg' dans ce dossier :")
+        print(dossier_script)
     except Exception as e:
-        print(f"Une erreur inattendue est survenue : {e}")
+        print(f"Une erreur est survenue : {e}")
