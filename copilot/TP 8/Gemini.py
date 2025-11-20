@@ -159,12 +159,9 @@ if __name__ == "__main__":
         img = umage.load(chemin_image)
         print(f"Succès ! Image chargée.")
         
-        # --- VOS TESTS ---
-        
-        # 1. Greyscale
+        #1. Greyscale
         print("Génération de l'image en niveaux de gris...")
         img_g = greyscale(img)
-        # On sauvegarde aussi dans le même dossier pour retrouver le résultat
         umage.save(img_g, os.path.join(dossier_script, 'resultat_gris'))
         
         # 2. Convolution
