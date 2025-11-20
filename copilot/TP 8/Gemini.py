@@ -177,6 +177,19 @@ if __name__ == "__main__":
         
         print("Terminé ! Regardez dans le dossier du script.")
 
+        #4. Gros flou
+        print("Génération d'un flou PUISSANT...")
+        flou_5x5 = [
+            [1/25, 1/25, 1/25, 1/25, 1/25],
+            [1/25, 1/25, 1/25, 1/25, 1/25],
+            [1/25, 1/25, 1/25, 1/25, 1/25],
+            [1/25, 1/25, 1/25, 1/25, 1/25],
+            [1/25, 1/25, 1/25, 1/25, 1/25]
+        ]
+
+        img_floue_forte = convolution(img, flou_5x5)
+        umage.save(img_floue_forte, os.path.join(dossier_script, 'resultat_flou_fort'))
+
     except FileNotFoundError:
         print(f"ERREUR : Python ne trouve toujours pas l'image.")
         print(f"Vérifiez qu'un fichier s'appelle exactement 'test.jpg' dans ce dossier :")
