@@ -175,7 +175,7 @@ if __name__ == "__main__":
         img_s = sobel(img)
         umage.save(img_s, os.path.join(dossier_script, 'resultat_sobel'))
         
-        print("Terminé ! Regardez dans le dossier du script.")
+
 
         #4. Gros flou
         print("Génération d'un flou PUISSANT...")
@@ -189,6 +189,8 @@ if __name__ == "__main__":
 
         img_floue_forte = convolution(img, flou_5x5)
         umage.save(img_floue_forte, os.path.join(dossier_script, 'resultat_flou_fort'))
+
+        print("Terminé ! Regardez dans le dossier du script.")
 
     except FileNotFoundError:
         print(f"ERREUR : Python ne trouve toujours pas l'image.")
