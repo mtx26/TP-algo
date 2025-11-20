@@ -26,7 +26,6 @@ def somme_conv(i, j, matrice_img, mat):
     dx = (x - 1)/2
 
     k = 0
-    res = [matrice_img[i][j][0], matrice_img[i][j][1], matrice_img[i][j][2]]
     res = [0, 0, 0]
     while k < (y):
         new_i = int(i - dy + k)
@@ -91,4 +90,4 @@ def Sobel(matrice_img):
         i += 1
     return row
 
-umage.save(Sobel(greyscale(umage.load("TP_8/image/DJI_0189 copie.jpg"))), "img_sobel", "jpg")
+umage.save(Sobel(greyscale(umage.load("TP_8/image/image_test.jpg"))), "img_sobel", "jpg")
