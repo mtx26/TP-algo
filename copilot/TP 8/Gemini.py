@@ -3,6 +3,8 @@ import itertools
 import math
 import os
 import umage
+
+
 #load et save sont des équivalent au module umage 
 def load(filename):
     """ Given a filename that matches an image file,
@@ -175,8 +177,6 @@ if __name__ == "__main__":
         img_s = sobel(img)
         umage.save(img_s, os.path.join(dossier_script, 'resultat_sobel'))
         
-
-
         #4. Gros flou
         print("Génération d'un flou PUISSANT...")
         flou_5x5 = [
