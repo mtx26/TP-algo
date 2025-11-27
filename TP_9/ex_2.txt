@@ -1,0 +1,3 @@
+
+selection, insertion et bulle = O(n²)
+Fusion = O(nlog(n))

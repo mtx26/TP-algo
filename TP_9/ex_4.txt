@@ -1,0 +1,1 @@
+la complexité de la recherche lineaire est de O(n)

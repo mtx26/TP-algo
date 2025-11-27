@@ -1,0 +1,19 @@
+
+n est le nombre d'éléments.
+list = les éléments
+is_sort est la variable de fin de la boucle, à chaque itération s'il y a un changement alors on...
+nous allons faire une boucle où tant que is_sort est false : (exécuté au max en n)
+    modify = false 
+
+    un for pour chaque élément de la liste à trier de 0 jusqu'au nombre d'éléments -2 (car c'est par deux à chaque fois) (exécuté en n fois)
+        
+        pour chaque élément, on regarde si l'élément suivant est plus petit 
+            si oui alors on interchange les éléments et on met modify = true 
+            si non on ne fait rien
+        
+    si modify = false alors on change is_sort en true
+
+retourne la liste
+
+
+La complexité est de O(n) * O(n) = O(n²)
