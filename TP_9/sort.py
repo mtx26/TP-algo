@@ -61,6 +61,18 @@ def split(t):
 
 
 def merge(t1, t2):
+    """Fusionne deux listes triées en une nouvelle liste triée.
+
+    Préconditions:
+      - t1 et t2 sont triées en ordre croissant.
+    Effets de bord:
+      - Cette implémentation utilise pop() et modifie t1 et t2 pendant la
+        construction du résultat.
+    Retour:
+      - Une nouvelle liste contenant tous les éléments de t1 et t2 en ordre
+        croissant.
+    Complexité: O(n) où n = len(t1) + len(t2) en nombre d'opérations.
+    """
     if len(t1) == 0:
         return t2
     elif len(t2) == 0:
@@ -78,6 +90,17 @@ def merge(t1, t2):
 
 
 def dicho_search(t, x):
+    """Recherche dichotomique (binaire) d'une valeur dans une liste triée.
+
+    Préconditions:
+      - t est triée en ordre croissant.
+    Paramètres:
+      - t : liste triée
+      - x : valeur recherchée
+    Retour:
+      - L'indice i tel que t[i] == x si trouvé, sinon None.
+    Complexité: O(log n) en temps, O(1) en mémoire auxiliaire.
+    """
     start = 0
     end = len(t) - 1
     mid = start + (end - start) // 2
@@ -94,6 +117,18 @@ def dicho_search(t, x):
 
 
 def test(n):
+    """Mesure et affiche les temps d'exécution pour plusieurs tris sur 3 listes.
+
+    Comportement:
+      - Construit trois listes de taille n : croissante, décroissante, aléatoire.
+      - Mesure les temps (en ms) pour selection_sort, insertion_sort et merge_sort
+        appliqués à chacune de ces listes via umons_cpu.cpu_time.
+      - Affiche une ligne formatée contenant n et les temps mesurés.
+    Paramètre:
+      - n : taille des listes à tester (int)
+    Effets:
+      - Affiche une ligne sur la sortie standard.
+    """
     t1 = list(range(n))
     t2 = list(range(n, 0, -1))
     t3 = []
@@ -113,6 +148,14 @@ def test(n):
 
 
 def main():
+    """Point d'entrée qui affiche un en-tête et lance des tests de performance.
+
+    Comportement:
+      - Affiche des explications sur les colonnes de sortie puis lance test(i)
+        pour i allant de 100 à 900 par pas de 100.
+    Effets:
+      - Affiche plusieurs lignes sur la sortie standard.
+    """
     print('n : taille des listes')
     print('t1 : temps pour des listes triées croissantes')
     print('t2 : temps pour des listes triées décroissantes')
