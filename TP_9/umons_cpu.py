@@ -28,7 +28,7 @@ def __calibrate__(t):
     calibrate_test = 0
     n = 1
 
-    while calibrate_test < 0.001:
+    while calibrate_test < 0.01:
         n *= 10
         calibrate_test = t.timeit(n)
 
