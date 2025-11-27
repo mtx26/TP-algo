@@ -8,6 +8,15 @@ from umons_cpu import cpu_time, calibrate
 from math import sqrt
 
 def fib_rec(n):
+    """
+    Calcule le n-ième nombre de Fibonacci de manière récursive.
+    
+    Args:
+        n (int): L'indice du nombre de Fibonacci à calculer.
+    
+    Returns:
+        int: Le n-ième nombre de Fibonacci.
+    """
     if n == 0:
         return 0
     elif n == 1:
@@ -16,12 +25,30 @@ def fib_rec(n):
         return fib_rec(n-1) + fib_rec(n-2)
 
 def fib_iter(n):
+    """
+    Calcule le n-ième nombre de Fibonacci de manière itérative.
+    
+    Args:
+        n (int): L'indice du nombre de Fibonacci à calculer.
+    
+    Returns:
+        int: Le n-ième nombre de Fibonacci.
+    """
     f = [0, 1]
     for i in range(2,n+1):
         f.append(f[i-1] + f[i-2])
     return f[n]
 
 def insertion_sort(t):
+    """
+    Trie une liste par insertion (tri en place).
+    
+    Args:
+        t (list): La liste à trier. Modifiée en place.
+    
+    Returns:
+        None
+    """
     n = len(t)
     for i in range(1,n):
         clef = t[i]
@@ -32,6 +59,15 @@ def insertion_sort(t):
         t[j+1] = clef
 
 def selection_sort(t):
+    """
+    Trie une liste par sélection (tri en place).
+    
+    Args:
+        t (list): La liste à trier. Modifiée en place.
+    
+    Returns:
+        None
+    """
     n = len(t)
     for i in range(n-1):
         small = i
