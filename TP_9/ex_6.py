@@ -54,7 +54,7 @@ def dispay_graph(point):
     # Display
     afficheur.draw()
 
-dispay_graph(list(range(0, 1000, 10)))
+dispay_graph(list(range(0, 10000, 100)))
 
 
 
