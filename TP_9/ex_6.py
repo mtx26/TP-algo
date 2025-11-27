@@ -12,7 +12,6 @@ def gen_random_list(lenght):
 
 
 def use_script(list):
-    print(list)
     a = umons_cpu.cpu_time(sort.selection_sort, list)
     b = umons_cpu.cpu_time(sort.insertion_sort, list)
     c = umons_cpu.cpu_time(sort.merge_sort, list)
