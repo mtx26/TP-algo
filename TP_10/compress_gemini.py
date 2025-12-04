@@ -33,7 +33,16 @@ class BadADNFormat(Exception):
 def compress_lz(text):
     """
     Compresses text using Dictionary Coding (LZ).
-    Returns a JSON string containing the dictionary and the index list.
+    
+    This function splits the input text into words and creates a dictionary
+    of unique words with their indices. It then replaces each word with its
+    corresponding index number.
+    
+    Args:
+        text (str): The input text to compress.
+    
+    Returns:
+        str: A JSON string containing the dictionary and the index list.
     """
     words = text.split()
     # Create unique list of words preserving order of appearance for determinism
@@ -56,7 +65,20 @@ def compress_lz(text):
 
 def decompress_lz(data_str):
     """
-    Decompresses LZ data. Expects a JSON string.
+    Decompresses LZ-compressed data.
+    
+    This function takes a JSON-formatted string containing a dictionary and
+    index list, then reconstructs the original text by replacing each index
+    with its corresponding word from the dictionary.
+    
+    Args:
+        data_str (str): A JSON string containing the dictionary and index list.
+    
+    Returns:
+        str: The decompressed text with words separated by spaces.
+    
+    Raises:
+        TypeError: If the JSON format is invalid or doesn't match LZ compression format.
     """
     try:
         package = json.loads(data_str)
@@ -73,6 +95,19 @@ def decompress_lz(data_str):
 def compress_adn(text):
     """
     Compresses DNA sequence using RLE (Run-Length Encoding).
+    
+    This function validates that the input contains only valid DNA bases (A, T, G, C)
+    and then applies Run-Length Encoding to reduce the file size by representing
+    consecutive identical characters as a count followed by the character.
+    
+    Args:
+        text (str): The DNA sequence to compress (containing only A, T, G, C).
+    
+    Returns:
+        str: The RLE-compressed DNA sequence.
+    
+    Raises:
+        BadADNFormat: If the input contains non-DNA characters.
     """
     # 1. Validation
     valid_bases = {'A', 'T', 'G', 'C', '\n', '\r'}
@@ -105,7 +140,20 @@ def compress_adn(text):
 
 def decompress_adn(text):
     """
-    Decompresses DNA RLE data.
+    Decompresses DNA RLE (Run-Length Encoding) data.
+    
+    This function reverses the Run-Length Encoding by reading each number-base
+    pair and expanding it back to the original sequence. It handles multi-digit
+    counts and single characters (implicit count of 1).
+    
+    Args:
+        text (str): The RLE-compressed DNA sequence (format: e.g., "2A3T1G").
+    
+    Returns:
+        str: The decompressed DNA sequence.
+    
+    Raises:
+        TypeError: If the ADN stream format is invalid (e.g., number at end without base).
     """
     result = []
     i = 0
@@ -139,6 +187,22 @@ def decompress_adn(text):
 
 
 def main():
+    """
+    Main entry point for the compression tool.
+    
+    This function handles command-line argument parsing, file I/O operations,
+    and orchestrates the compression or decompression process based on user input.
+    It supports two compression techniques: LZ (Dictionary Coding) and ADN (RLE).
+    
+    The function reads the input file, applies the selected compression/decompression
+    technique, and writes the result to the output file.
+    
+    Raises:
+        FileNotFoundError: If the input file does not exist.
+        ValueError: If unknown technique is specified.
+        BadADNFormat: If ADN compression fails due to invalid characters.
+        TypeError: If decompression format is invalid.
+    """
     try:
         # Parse arguments
         args = docopt(__doc__)
