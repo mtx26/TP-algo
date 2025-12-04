@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+#Code by gemini-3pro
 
 # Tableau de codons -> acides aminés
 CODON_TABLE = {
