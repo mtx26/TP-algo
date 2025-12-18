@@ -20,9 +20,15 @@ class Personne():
         return ami
 
     def ajouter_les_amis_d_amis(self):
-
-        pass
+        amis_a_ajouter = []
+        for ami_direct in self.amis:
+            for ami_dist in ami_direct.amis:
+                if (ami_dist is not self) and \
+                   (ami_dist not in self.amis) and \
+                   (ami_dist not in amis_a_ajouter):
+                    amis_a_ajouter.append(ami_dist)
         
+        self.amis.extend(amis_a_ajouter)
     
     def __str__(self):
         return "Une personne, sont nom est " + self.name + "son adresse email est " + self.email + "ses amis sont " + self.friends
