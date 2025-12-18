@@ -8,7 +8,7 @@ def peut_aller(piece1, piece2, portes, eviter):
                     return True
 
 def chemin(piece1, piece2, portes, eviter):
-    pass
+    chemin = []
 
 def plus_court_chemin(piece1, piece2, portes, eviter):
     pass
