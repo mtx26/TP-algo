@@ -9,9 +9,17 @@ def peut_aller(piece1, piece2, portes, eviter):
 
 def chemin(piece1, piece2, portes, eviter):
     chemin = []
-
-def plus_court_chemin(piece1, piece2, portes, eviter):
-    pass
+    if piece1 == piece2:
+        return [piece1]
+    
+    nouvel_eviter = eviter + [piece1]
+    
+    for (p_dep, p_arr) in portes:
+        if p_dep == piece1 and p_arr not in eviter:
+            resultat = chemin(p_arr, piece2, portes, nouvel_eviter)
+            if resultat is not None:
+                return [piece1] + resultat
+    return None
 
 if __name__== "__main__":
     pass

@@ -15,7 +15,9 @@ class Personne():
         self.friends = []
 
     def ajouter_un_ami(self, ami):
-        pass
+        if ami is not self and ami not in self.amis:
+            self.amis.append(ami)
+        return ami
 
     def ajouter_les_amis_d_amis(self):
 
