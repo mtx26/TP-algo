@@ -4,6 +4,10 @@ Ce dépôt contient les travaux pratiques d'informatique réalisés dans le cadr
 
 ## Structure du projet
 
+Deux fichiers : 
+   - prog_Imp : dossier du cours d'info du premier quadrimestre essentiellment basé sur la programmation impérative en python 
+   - Prog_o_obj : dossier du cours d'info du deuxieme quadrimestre essentiellment basé sur la programmation orientée objet en java  
+
 - `TP 1/` : Premier TP, exercices d'introduction à l'algorithmique.
 - `TP 2/` : Deuxième TP, approfondissement des notions et résolution de problèmes plus complexes.
 - Autres dossiers : Chaque dossier correspond à un TP ou à une série d'exercices ou a l'exercice réalisé par copilot.
