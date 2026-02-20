@@ -1,0 +1,32 @@
+— Vous devez gérer une base de données de recettes de cuisine. Chaque recette est représentée
+par une liste fixe d’ingrédients, et vous voulez éviter d’avoir des doublons de recettes.
+
+    set(frozenset)
+    # Chaque recette est un frozenset (ensemble immuable d'ingrédients),
+    # et l'ensemble global (set) permet d'éviter les doublons de recettes.
+— Vous devez enregistrer les notes des étudiants pour plusieurs matières. Chaque étudiant étant
+identifié par son nom et son prénom. On aimerait avoir accès rapidement à la note d’un
+étudiant pour une matière donnée en connaissant son nom, son prénom, et le nom de la
+matière.
+    # Solution alternative (plus structurée) :
+    # Utiliser un dictionnaire dont la clé est un tuple (nom, prénom),
+    # et la valeur est un dictionnaire associant chaque matière à la note.
+    # Exemple :
+    notes = {
+        ("Dupont", "Alice"): {"math": 20, "science": 12},
+        ("Martin", "Bob"): {"math": 15, "science": 14}
+    }
+    # On accède à la note ainsi : notes[("Dupont", "Alice")]["science"]  # renvoie 12
+— Vous devez organiser des programmes télévisés par catégorie. Chaque catégorie (comme
+"sport", "documentaire", "divertissement") est associée à un ensemble d’émissions spécifiques.
+Vous voulez garantir que la structure contenant les catégories et leurs émissions ne soit pas
+modifiable après définition.
+
+
+# Utiliser un frozenset de tuples (catégorie, frozenset d'émissions) pour garantir l'immuabilité totale.
+categories = frozenset([
+    ("sport", frozenset(["Foot", "Tennis", "Basket"])),
+    ("documentaire", frozenset(["Planète Terre", "Histoire du monde"])),
+    ("divertissement", frozenset(["The Voice", "Koh-Lanta"]))
+])
+# Ainsi, ni les catégories ni les émissions ne peuvent être modifiées après définition.
