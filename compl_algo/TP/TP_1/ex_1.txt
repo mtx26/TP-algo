@@ -1,23 +1,23 @@
-1. **Historique des actions d’un utilisateur sur un site web**  
-   → **Liste**  
+1. Historique des actions d’un utilisateur sur un site web
+   Liste
    Car l’ordre des actions est important et peut évoluer (ajout d’actions).
 
-2. **Constantes d’une application (valeurs uniquement, jamais modifiées)**  
-   → **Tuple**  
+2. Constantes d’une application (valeurs uniquement, jamais modifiées)
+   Tuple
    Car les tuples sont immuables et adaptés à des collections fixes de valeurs.
 
-3. **Coordonnées (x, y) d’un point fixe sur un graphique**  
-   → **Tuple**  
+3. Coordonnées (x, y) d’un point fixe sur un graphique
+   Tuple
    Car il s’agit d’un petit ensemble de valeurs hétérogènes, fixes et ordonnées.
 
-4. **Liste d’options sélectionnées par un utilisateur (ajout/suppression possible)**  
-   → **Ensemble (set)**  
+4. Liste d’options sélectionnées par un utilisateur (ajout/suppression possible)
+   Ensemble (set)
    Car un ensemble permet d’ajouter/enlever facilement des éléments et évite les doublons.
 
-5. **Registre d’emprunt de livre (chaque livre associé à une personne)**  
-   → **Dictionnaire**  
+5. Registre d’emprunt de livre (chaque livre associé à une personne)
+   Dictionnaire
    Car un dictionnaire permet d’associer une clé (le livre) à une valeur (l’emprunteur).
 
-6. **Stocker l’ADN d’un organisme (séquence de nucléotides A, T, C, G)**  
-   → **Chaîne (str)**  
+6. Stocker l’ADN d’un organisme (séquence de nucléotides A, T, C, G)
+   Chaîne (str)
    Car l’ADN est une longue séquence ordonnée de caractères, et la chaîne est idéale pour cela.
