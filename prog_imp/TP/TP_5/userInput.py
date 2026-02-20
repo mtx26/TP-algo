@@ -6,7 +6,7 @@ def belongs_to_dictionary(word):
 	Retour:
 	- bool: True si le mot est présent dans le fichier 'TP_5/words.txt', sinon False.
 	"""
-	with open('TP_5/words.txt', "r") as fichier:
+	with open('/Users/noa/Library/CloudStorage/OneDrive-UMONS/UMons/Code/Bac 1 - Vscode/TP-algo/prog_imp/TP/TP_5/words.txt', "r") as fichier:
 		word.lower()
 		find = False
 		for line in fichier:
