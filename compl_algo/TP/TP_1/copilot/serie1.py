@@ -60,14 +60,41 @@ map_dict = {
 
 # 5. get_treasure
 def get_treasure(treasure_map, coords):
+    """Return the amount of treasure at the given coordinates.
+
+    Args:
+        treasure_map (dict): mapping of coordinate tuples (x, y) to amounts (int).
+        coords (tuple): a (x, y) coordinate pair.
+
+    Returns:
+        int: the amount of treasure at `coords`, or 0 if no entry exists.
+    """
     return treasure_map.get(coords, 0)
 
 # 6. add_treasure
 def add_treasure(treasure_map, coords, amount):
+    """Add `amount` of treasure at `coords` in `treasure_map` (mutates map).
+
+    If `coords` is not present in `treasure_map`, it will be created.
+
+    Args:
+        treasure_map (dict): mapping of coordinate tuples (x, y) to amounts (int).
+        coords (tuple): a (x, y) coordinate pair where treasure is added.
+        amount (int): the amount of treasure to add (can be negative to remove).
+    """
     treasure_map[coords] = treasure_map.get(coords, 0) + amount
 
 # 7. set_treasure
 def set_treasure(treasure_map, coords, amount):
+    """Set the treasure amount at `coords` in `treasure_map`.
+
+    If `amount` is 0 the entry for `coords` is removed from the map.
+
+    Args:
+        treasure_map (dict): mapping of coordinate tuples (x, y) to amounts (int).
+        coords (tuple): a (x, y) coordinate pair.
+        amount (int): the amount to set; if 0 the entry is removed.
+    """
     if amount == 0:
         if coords in treasure_map:
             del treasure_map[coords]
@@ -79,6 +106,18 @@ def set_treasure(treasure_map, coords, amount):
 
 # 8. add_map
 def add_map(map1, map2):
+    """Combine two treasure maps and return the summed result.
+
+    The returned map is a shallow copy of `map1` with values from `map2`
+    added. Any entries whose summed amount is 0 are removed from the result.
+
+    Args:
+        map1 (dict): first treasure map (coords -> amount).
+        map2 (dict): second treasure map (coords -> amount).
+
+    Returns:
+        dict: new treasure map containing the combined amounts.
+    """
     result = map1.copy()
     for coords, amount in map2.items():
         result[coords] = result.get(coords, 0) + amount
