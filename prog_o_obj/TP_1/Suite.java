@@ -1,3 +1,5 @@
+package prog_o_obj.TP_1;
+
 public class Suite {
     public int suiteArithmetique(int depart, int raison, int k){
         return depart + (k-1)*raison;
