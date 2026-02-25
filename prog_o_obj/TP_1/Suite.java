@@ -16,4 +16,12 @@ public class Suite {
             return suiteFibonacci(k - 1) + suiteFibonacci(k - 2);
         }
     }
+
+
+    public void main(String[] args) {
+        System.out.println(suiteArithmetique(-200, 99, 20)); 
+        System.out.println(suiteGeometrique(1, 2, 32)); 
+        System.out.println(suiteFibonacci(20)); 
+    }
 }
+
