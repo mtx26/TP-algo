@@ -1,4 +1,4 @@
-package TP_1.Copilot;
+package noa.TP_1.Copilot;
 public class Suite {
 
     // 1. Suite arithmétique : chaque terme s'obtient en ajoutant la raison au précédent

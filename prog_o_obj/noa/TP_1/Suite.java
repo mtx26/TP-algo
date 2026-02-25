@@ -1,4 +1,4 @@
-package TP_1;
+package noa.TP_1;
 
 public class Suite {
     public int suiteArithmetique(int depart, int raison, int k){
