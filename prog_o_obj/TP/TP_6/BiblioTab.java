@@ -13,7 +13,7 @@ public class BiblioTab extends Bibliotheque {
 
     @Override
     public void ajouter(Ouvrage o) {
-        if (nbOuvrages < capaciteMax) { // Vérification des bornes
+        if (nbOuvrages < capaciteMax) {
             catalogue[nbOuvrages] = o;
             nbOuvrages++;
             System.out.println("Ouvrage ajouté avec succès.");
@@ -23,10 +23,9 @@ public class BiblioTab extends Bibliotheque {
     }
 
     @Override
-    public void supprimer(int cote) { // Suppression prenant en argument la cote [cite: 14]
+    public void supprimer(int cote) {
         for (int i = 0; i < nbOuvrages; i++) {
             if (catalogue[i].getCote() == cote) {
-                // Décaler les éléments pour combler le trou
                 for (int j = i; j < nbOuvrages - 1; j++) {
                     catalogue[j] = catalogue[j + 1];
                 }
@@ -40,7 +39,7 @@ public class BiblioTab extends Bibliotheque {
     }
 
     @Override
-    public String toString() { // Affichant le nombre d'ouvrages, puis chaque ouvrage successivement [cite: 15]
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Bibliothèque (").append(nbOuvrages).append(" ouvrage(s) sur ").append(capaciteMax).append(")\n");
         sb.append("--------------------------------------------------\n");
