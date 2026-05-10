@@ -80,6 +80,18 @@ public class StatChampionship {
                     int temp = classement[i];
                     classement[i] = classement[j];
                     classement[j] = temp;
+                } else if (getPoints(classement[j]) == getPoints(classement[i])) {
+                    if (getDifference(classement[j]) > getDifference(classement[i])) {
+                        int temp = classement[i];
+                        classement[i] = classement[j];
+                        classement[j] = temp;
+                    } else if (getDifference(classement[j]) == getDifference(classement[i])) {
+                        if (getGoals(classement[j]) > getGoals(classement[i])) {
+                            int temp = classement[i];
+                            classement[i] = classement[j];
+                            classement[j] = temp;
+                        }
+                    }
                 }
             }
         }
@@ -115,10 +127,6 @@ public class StatChampionship {
         FootballScores footballScores = new FootballScores(teams);
         footballScores.simulateChampionship();
         StatChampionship test = new StatChampionship(footballScores);
-        System.out.println(test.getPoints(0));
-        System.out.println(test.getPoints(1));
-        System.out.println(test.getPoints(2));
-        System.out.println(test.getPoints(3));
         test.printStat();
     }
 }
