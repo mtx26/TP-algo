@@ -1,5 +1,9 @@
 {
     "github.copilot.nextEditSuggestions.enabled": false,
     "python.REPL.enableREPLSmartSend": false,
-    "java.debug.settings.onBuildFailureProceed": true
+    "java.debug.settings.onBuildFailureProceed": true,
+    "files.associations": {
+        "*.s": "mips",
+        "*.asm": "mips"
+    }
 }
